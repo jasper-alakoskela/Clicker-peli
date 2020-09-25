@@ -1,0 +1,17 @@
+body {
+    background-image: url(img/lawn.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+.header {
+    text-align: center;
+    font-size: x-large;
+}
+
+.animalclicker {
+    border: black 5px solid;
+    text-align: center;
+    margin: 30px 800px 0px 800px;
+}
+
