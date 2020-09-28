@@ -16,17 +16,25 @@
 
 
     <div class="animalclicker">
-        <h3 id="animalname">kissa</h3>
-        <h2 id="clickcount">0 klikkausta</h2>
-        <img src="img/cat.png" onmouseover="this.src='scaredcat.png'" onmouseout="this.src='cat.png'">
-
-
+        <a href="#" onclick="add()">
+            <img src="img/cat.png" onmouseover="rollOver(this)" onmouseout="mouseAway(this)"
+                onclick="mouseClick(this)"></a>
+        <h2>Pisteet:</h2>
+        <input type="text" id="score" disabled style=text-align:center>
+        <button> <a href="#" onclick="save()">Tallenna</a></button>
+        <button> <a href="#" onclick="load()">Lataa</a></button>
     </div>
 
-    <div class="animalselector">
+    <p>Osta 1 Auto näpäytin</p>
+    <button><a href="#" onclick="buyAutoClick()"></a><img src="img/pointer.png" width="100px"
+            height="100px"></a></button>
 
-    </div>
+    <p id="costAutoClick">12 Pistettä</p>
+    <p id="ammountAutoClick">Sinulla on 0 Auto näpäytintä</p>
+
+
 </body>
 <script src="programming.js"></script>
+
 
 </html>
