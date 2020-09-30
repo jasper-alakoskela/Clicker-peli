@@ -22,6 +22,14 @@ function buyShelter() {
     }
 }
 
+function buyMultiplier() {
+    if (clickCount >= ((multiplier + 1) * 100)) {
+        clickCount = clickCount - ((multiplier + 1) * 100);
+        multiplier = multiplier + 1;
+        update()
+    }
+}
+
 function update() {
     document.getElementById("score").value = clickCount;
     document.title = clickCount + " Pistettä";
@@ -33,11 +41,17 @@ function update() {
     document.getElementById("costShelter").innerHTML = ((shelter + 1) * 15) + " Pistettä";
 
     document.getElementById("clickspersecond").innerHTML = "Saat " + (((autoClick) + (shelter * 2)) * multiplier) + " Pistettä per/s";
+
+    document.getElementById("ammountMultiplier").innerHTML = "Kertoja Päivitys x" + (multiplier + 1)
+    document.getElementById("ammountMultiplier2").innerHTML = "x" + (multiplier + 1);
+    document.getElementById("costMultiplier").innerHTML = ((multiplier + 1) * 100) + " Pistettä";
+    document.getElementById("currentMultiplier").innerHTML = "Tämänhetkinen Kertoja on x" + (multiplier);
+
 }
 
 function timer() {
-    clickCount = clickCount + autoClick;
-    clickCount = clickCount + shelter * 2;
+    clickCount = clickCount + autoClick * multiplier;
+    clickCount = clickCount + shelter * 2 * multiplier;
     update()
 }
 
@@ -73,6 +87,7 @@ function save() {
     localStorage.setItem("clickCount", clickCount);
     localStorage.setItem("autoClick", autoClick);
     localStorage.setItem("shelter", shelter);
+    localStorage.setItem("multiplier", multiplier);
 
 }
 function load() {
@@ -82,5 +97,7 @@ function load() {
     autoClick = parseInt(autoClick);
     shelter = localStorage.getItem("shelter");
     shelter = parseInt(shelter);
+    multiplier = localStorage.getItem("multiplier");
+    multiplier = parseInt(multiplier);
     update()
 }
