@@ -1,23 +1,32 @@
 
 let clickCount = 0;
-let autoClick = 0;
-let shelter = 0;
+let click = 0;
+let spray = 0;
+let dog = 0;
 let multiplier = 1;
 
 //Upgrades
 
-function buyAutoClick() {
-    if (clickCount >= ((autoClick + 1) * 12)) {
-        clickCount = clickCount - ((autoClick + 1) * 12);
-        autoClick = autoClick + 1;
+function buyClick() {
+    if (clickCount >= ((click + 1) * 30)) {
+        clickCount = clickCount - ((click + 1) * 30);
+        click = click + 1;
         update()
     }
 }
 
-function buyShelter() {
-    if (clickCount >= ((shelter + 1) * 15)) {
-        clickCount = clickCount - ((shelter + 1) * 15);
-        shelter = shelter + 1;
+function buySpray() {
+    if (clickCount >= ((spray + 1) * 100)) {
+        clickCount = clickCount - ((spray + 1) * 100);
+        spray = spray + 1;
+        update()
+    }
+}
+
+function buyDog() {
+    if (clickCount >= ((dog + 1) * 500)) {
+        clickCount = clickCount - ((dog + 1) * 500);
+        dog = dog + 1;
         update()
     }
 }
@@ -34,13 +43,16 @@ function update() {
     document.getElementById("score").value = clickCount;
     document.title = clickCount + " Pistettä";
 
-    document.getElementById("ammountAutoClick").innerHTML = "Sinulla on " + autoClick + " Auto näpäytintä";
-    document.getElementById("costAutoClick").innerHTML = ((autoClick + 1) * 12) + " Pistettä";
+    document.getElementById("ammountClick").innerHTML = "Sinulla on " + click + " Näpäyttäjää";
+    document.getElementById("costClick").innerHTML = ((click + 1) * 30) + " Pistettä";
 
-    document.getElementById("ammountShelter").innerHTML = "Sinulla on " + shelter + " Eläinhoitolaa";
-    document.getElementById("costShelter").innerHTML = ((shelter + 1) * 15) + " Pistettä";
+    document.getElementById("ammountSpray").innerHTML = "Sinulla on " + spray + " Suihketta";
+    document.getElementById("costSpray").innerHTML = ((spray + 1) * 100) + " Pistettä";
 
-    document.getElementById("clickspersecond").innerHTML = "Saat " + (((autoClick) + (shelter * 2)) * multiplier) + " Pistettä per/s";
+    document.getElementById("ammountDog").innerHTML = "Sinulla on " + dog + " Koiraa";
+    document.getElementById("costDog").innerHTML = ((dog + 1) * 500) + " Pistettä";
+
+    document.getElementById("clickspersecond").innerHTML = "Saat " + (((click) + (spray * 5) + (dog * 10)) * multiplier) + " Pistettä per/s";
 
     document.getElementById("ammountMultiplier").innerHTML = "Kertoja Päivitys x" + (multiplier + 1)
     document.getElementById("ammountMultiplier2").innerHTML = "x" + (multiplier + 1);
@@ -50,8 +62,9 @@ function update() {
 }
 
 function timer() {
-    clickCount = clickCount + autoClick * multiplier;
-    clickCount = clickCount + shelter * 2 * multiplier;
+    clickCount = clickCount + click * multiplier;
+    clickCount = clickCount + spray * 5 * multiplier;
+    clickCount = clickCount + dog * 10 * multiplier;
     update()
 }
 
@@ -63,6 +76,7 @@ setInterval(timer, 1000)
 function rollOver(my_image) {
 
     my_image.src = 'img/scaredcat.png';
+
 
 }
 
@@ -85,18 +99,21 @@ function add() {
 
 function save() {
     localStorage.setItem("clickCount", clickCount);
-    localStorage.setItem("autoClick", autoClick);
-    localStorage.setItem("shelter", shelter);
+    localStorage.setItem("click", click);
+    localStorage.setItem("spray", spray);
+    localStorage.setItem("dog", dog);
     localStorage.setItem("multiplier", multiplier);
 
 }
 function load() {
     clickCount = localStorage.getItem("clickCount");
     clickCount = parseInt(clickCount);
-    autoClick = localStorage.getItem("autoClick");
-    autoClick = parseInt(autoClick);
-    shelter = localStorage.getItem("shelter");
-    shelter = parseInt(shelter);
+    click = localStorage.getItem("click");
+    click = parseInt(click);
+    spray = localStorage.getItem("spray");
+    spray = parseInt(spray);
+    dog = localStorage.getItem("dog");
+    dog = parseInt(dog);
     multiplier = localStorage.getItem("multiplier");
     multiplier = parseInt(multiplier);
     update()

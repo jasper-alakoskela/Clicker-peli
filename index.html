@@ -11,43 +11,54 @@
 <body>
     <div class="header">
         <h1>Tervetuloa</h1>
-        <h2>Eläimen näpäyttymiseen!</h2>
+        <h2>Kissan kiusaamiseen!</h2>
     </div>
 
-
-    <div class="animalclicker">
+    <div class="catclicker">
         <p id="clickspersecond">Saat 0 Pistettä per/s</p>
         <a href="#" onclick="add()">
             <img src="img/cat.png" onmouseover="rollOver(this)" onmouseout="mouseAway(this)"
                 onclick="mouseClick(this)"></a>
-        <h2>Pisteet:</h2>
-        <input type="text" id="score" disabled style=text-align:center value="0">
+        <h3>Pisteet</h3>
+        <input type="text" id="score" disabled style=text-align:center value="0" size="10px">
+        <br><br>
         <button> <a href="#" onclick="save()">Tallenna</a></button>
         <button> <a href="#" onclick="load()">Lataa</a></button>
     </div>
 
-    <div>
-        <p>Osta 1 Auto näpäytin</p>
-        <button><a href="#" onclick="buyAutoClick()"><img src="img/pointer.png" width="70px" height="70px"></a></button>
-        <p>1 piste per/s</p>
-        <p id="costAutoClick">12 Pistettä</p>
-        <p id="ammountAutoClick">Sinulla on 0 Auto näpäytintä</p>
+    <div class="upgrades">
+        <div id="clicker">
+            <p>Osta 1 Näpäyttäjä</p>
+            <button><a href="#" onclick="buyClick()"><img src="img/pointer.png" width="70px" height="70px"></a></button>
+            <p>1 piste per/s</p>
+            <p id="costClick">30 Pistettä</p>
+            <p id="ammountClick">Sinulla on 0 Näpäyttäjää</p>
+        </div>
         <br>
-        <p>Osta 1 Eläinhoitola</p>
-        <button><a href="#" onclick="buyShelter()"><img src="img/shelter.jpg" width="70px" height="70px"></a></button>
-        <p>2 pistettä per/s</p>
-        <p id="costShelter">15 Pistettä</p>
-        <p id="ammountShelter">Sinulla on 0 Eläinhoitolaa</p>
+        <div id="spray">
+            <p>Osta 1 Suihke</p>
+            <button><a href="#" onclick="buySpray()"><img src="img/spray.png" width="70px" height="70px"></a></button>
+            <p>5 pistettä per/s</p>
+            <p id="costSpray">100 Pistettä</p>
+            <p id="ammountSpray">Sinulla on 0 Suihketta</p>
+        </div>
         <br>
-        <p id="ammountMultiplier">Kertoja Päivitys x2</p>
-        <button><a href="#" onclick="buyMultiplier()"><span id="ammountMultiplier2">x2</span></a></button>
-        <p id="costMultiplier">200 Pistettä</p>
-        <p id="currentMultiplier">Tämänhetkinen Kertoja on x1</p>
+        <div id="dog">
+            <p>Osta 1 Koira</p>
+            <button><a href="#" onclick="buyDog()"><img src="img/dog.png" width="70px" height="70px"></a></button>
+            <p>10 pistettä per/s</p>
+            <p id="costDog">500 Pistettä</p>
+            <p id="ammountDog">Sinulla on 0 Koiraa</p>
+        </div>
+        <br>
+        <div id="multiplier">
+            <p id="ammountMultiplier">Kertoja Päivitys x2</p>
+            <button><a href="#" onclick="buyMultiplier()"><span id="ammountMultiplier2">x2</span></a></button>
+            <p id="costMultiplier">200 Pistettä</p>
+            <p id="currentMultiplier">Tämänhetkinen Kertoja on x1</p>
+        </div>
     </div>
-
-
 </body>
 <script src="programming.js"></script>
-
 
 </html>
