@@ -2,6 +2,7 @@
 body {
     background-image: url(img/nurmikko.jpg);
     background-size: cover;
+    background-repeat: no-repeat;
     font-family: Arial, Helvetica, sans-serif;
     font-size: large;
 }
@@ -25,6 +26,8 @@ a {
     
 }
 
+    /*Content*/
+
 .catclicker {
     background-color: lightgrey;
     border: black 3px solid;
@@ -34,13 +37,14 @@ a {
     margin-left: 400px;
     height: 450px;
     width: 350px;
+    
 }
 
 .catclicker img {
     width: 300px;
     height: 200px;
 }
-
+    /*Upgrades*/
 .upgrades {
     background-color: lightgrey;
     border: black 2px solid;
@@ -90,4 +94,64 @@ a {
 
 #ammountMultiplier2 {
     font-size: 40px;
+}
+
+    /*Responsive*/
+
+@media screen and (max-width: 375px) {
+
+    .body {
+        text-align: center;
+    }
+
+    .catclicker {
+        float: right;
+    }
+
+    .upgrades {
+        float: left;
+        width: 360px;
+        
+    }
+
+    #clicker {
+        height: 100px;
+        width: 100px;
+        position: absolute;
+        top: 0px;
+        left: 30px;
+    }
+    
+    #spray {
+        height: 100px;
+        width: 100px;
+        position: absolute;
+        top: 0px;
+        right: 20px;
+    }
+    
+    #dog {
+        height: 100px;
+        width: 100px;
+        position: absolute;
+        bottom: 215px;
+        left: 30px;
+    }
+    
+    #multiplier {
+        height: 100px;
+        width: 100px;
+        position: absolute;
+        bottom: 180px;
+        right: 30px;
+    }
+    
+    #multiplier button {
+        width: 80px;
+        height: 80px;
+    }
+    
+    #ammountMultiplier2 {
+        font-size: 40px;
+    }
 }
